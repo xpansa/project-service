@@ -1,21 +1,24 @@
-# Translation of Odoo module.
-# This file is distributed under the same license as the project_categ package.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* project_categ
-#
+# * project_categ
+# 
+# Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2016
+# Thomas A. Jaeger, 2015
+# Thomas A. Jaeger, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo 8.0\n"
+"Project-Id-Version: project (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-04 08:49+0000\n"
-"PO-Revision-Date: 2014-12-10 09:13+0100\n"
-"Last-Translator: openbig.org - Thorsten Vocks <thorsten.vocks@openbig.org>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2015-12-24 08:57+0000\n"
+"PO-Revision-Date: 2016-02-26 17:02+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
+"Language-Team: German (http://www.transifex.com/oca/OCA-project-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 1.5.5\n"
+"Content-Transfer-Encoding: \n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: project_categ
 #: field:project.task,task_categ_id:0
@@ -25,7 +28,7 @@ msgstr "Hauptkategorie"
 #. module: project_categ
 #: model:ir.model,name:project_categ.model_project_category
 msgid "Category of project's task, issue, ..."
-msgstr "Kategorie für Aufgaben, Fälle aus Projekten"
+msgstr "Kategorie der Projekt-Aufgaben, -Probleme, ..."
 
 #. module: project_categ
 #: field:project.category,child_ids:0
@@ -55,9 +58,19 @@ msgstr "Projekt"
 #. module: project_categ
 #: field:project.project,task_categ_id:0
 msgid "Root Category for Tasks"
-msgstr "Hauptkategorie für Aufgaben"
+msgstr "Stammkategorie für Aufgaben"
 
 #. module: project_categ
 #: model:ir.model,name:project_categ.model_project_task
 msgid "Task"
 msgstr "Aufgabe"
+
+#. module: project_categ
+#: view:project.task:project_categ.project_task_form_view_categs
+msgid "onchange_project(project_id)"
+msgstr "onchange_project(project_id)"
+
+#. module: project_categ
+#: view:project.task:project_categ.project_task_form_view_categs
+msgid "{'required':[('task_categ_id','!=',False)]}"
+msgstr "{'required':[('task_categ_id','!=',False)]}"
