@@ -24,7 +24,9 @@ from openerp import models, fields, api
 _TASK_STATE = [
     ('draft', 'New'),
     ('open', 'In Progress'),
-    ('pending', 'Pending'),
+    ('feedback', 'Feedback'),
+    ('reviewing', 'Reviewing'),
+    ('onhold', 'On Hold'),
     ('done', 'Done'),
     ('cancelled', 'Cancelled')]
 

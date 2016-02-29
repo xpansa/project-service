@@ -44,5 +44,21 @@
             </field>
         </record>
 
+        <record id="view_task_search_form" model="ir.ui.view">
+            <field name="name">project.task.search.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_search_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='draft']" position="replace">
+                    <filter string="New" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Feedback" name="feedback" domain="[('state', '=', 'feedback')]"/>
+                    <filter string="In Progress" name="open" domain="[('state', '=', 'open')]"/>
+                    <filter string="Reviewing" name="reviewing" domain="[('state', '=', 'reviewing')]"/>
+                    <filter string="Closed" name="draft" domain="[('state', 'in', ['draft','cancelled'])]"/>
+                    <separator/>
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </openerp>
