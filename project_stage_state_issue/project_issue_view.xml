@@ -29,6 +29,7 @@
                     <filter string="Feedback" name="feedback" domain="[('state', '=', 'feedback')]"/>
                     <filter string="In Progress" name="open" domain="[('state', '=', 'open')]"/>
                     <filter string="Reviewing" name="reviewing" domain="[('state', '=', 'reviewing')]"/>
+                    <filter string="Opened" name="opened" domain="[('state', 'not in', ['draft','cancelled'])]"/>
                     <filter string="Closed" name="draft" domain="[('state', 'in', ['draft','cancelled'])]"/>
                     <separator/>
                 </xpath>
