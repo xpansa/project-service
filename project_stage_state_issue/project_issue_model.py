@@ -23,4 +23,4 @@ from openerp import models, fields
 
 class ProjectIssue(models.Model):
     _inherit = 'project.issue'
-    state = fields.Selection(related='stage_id.state', store=True)
+    state = fields.Selection(related='stage_id.state', store=True, readonly=True)
