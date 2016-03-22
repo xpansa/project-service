@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+<record id="project_issue_form_view" model="ir.ui.view">
+    <field name="model">project.issue</field>
+    <field name="inherit_id" ref="project_issue.project_issue_form_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//notebook/page[@string='Extra Info']" position="inside">
+            <group>
+                <group string="Gantt View">
+                    <field name="gantt_date_start"/>
+                    <field name="gantt_date_end"/>
+                </group>
+                <group>
+                    <field name="date_last_stage_update" groups="base.group_no_one"/>
+                </group>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+<record id="view_issue_gantt" model="ir.ui.view">
+    <field name="name">project.issue.gantt</field>
+    <field name="model">project.issue</field>
+    <field eval="2" name="priority"/>
+    <field name="arch" type="xml">
+        <gantt date_start="gantt_date_start" 
+               date_stop="gantt_date_end" 
+               progress="progress" 
+               string="Issues" 
+               default_group_by="project_id">
+        </gantt>
+    </field>
+</record>
+
+<record id="project_issue.action_view_issues" model="ir.actions.act_window">
+    <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
+</record>
+<record id="project_issue.act_project_project_2_project_issue_all" model="ir.actions.act_window">
+    <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
+</record>
+
+<record model="ir.actions.act_window.view" id="action_crm_tag_gantt_view0">
+        <field name="sequence" eval="5"/>
+        <field name="view_mode">gantt</field>
+        <field name="view_id" ref="view_issue_gantt"/>
+        <field name="act_window_id" ref="project_issue.project_issue_categ_act0"/>
+    </record>
+<record id="project_issue.project_issue_categ_act0" model="ir.actions.act_window">
+    <field name="view_mode">kanban,tree,calendar,form,gantt,graph</field>
+</record>
+
+    </data>
+</openerp>
