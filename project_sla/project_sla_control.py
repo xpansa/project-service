@@ -289,7 +289,7 @@ class SLAControl(orm.Model):
                     sla_line_id = sla_rec.get('sla_line_id')
                     if sla_line_id in control:
                         control_rec = control.get(sla_line_id)
-                        if not control_rec.locked:
+                        if not control_rec.locked and not control_rec.sla_state in ('1', '5'):
                             slas += m2m.write(control_rec.id, sla_rec)
                     else:
                         slas += m2m.add(sla_rec)
