@@ -336,7 +336,8 @@ class SLAControlled(orm.AbstractModel):
         doc_domain = [
             ('id', 'in', ids),
             ('state', 'not in', ('cancelled', 'cancel')),
-            ('sla_state', 'not in', ('1', '5'))
+            '|', ('state', '!=', 'done'),
+                 ('sla_state', 'not in', ('1', '5'))
         ]
         doc_ids = self.search(cr, uid, doc_domain, context=context)
         self.store_sla_control(cr, uid, doc_ids, context=context)
