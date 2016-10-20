@@ -293,12 +293,14 @@ class SLAControl(orm.Model):
                             slas += m2m.write(control_rec.id, sla_rec)
                     else:
                         slas += m2m.add(sla_rec)
-                global_sla = max([sla[2].get('sla_state') for sla in slas])
+                global_sla = max([sla[2].get('sla_state') for sla in slas]) if slas else None
             else:
                 slas = m2m.clear()
                 global_sla = None
             # calc sla control summary and store
-            vals = {'sla_state': global_sla, 'sla_control_ids': slas}
+            vals = {'sla_control_ids': slas}
+            if global_sla:
+                vals.update({'sla_state': global_sla})
             doc._model.write(  # regular users can't write on SLA Control
                 cr, SUPERUSER_ID, [doc.id], vals, context=context)
         return res
